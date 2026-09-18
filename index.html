@@ -1,0 +1,815 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Słownik pojęć — Starożytne Wedy, karma i świadomość</title>
+<meta name="description" content="Słownik pojęć z filmu „Starożytne Wedy wyprzedziły naukę. Jak zresetować negatywną karmę? Monika Burzyńska" — podcast Cypriana Majchera. Terminy wedyjskie, model świadomości, pojęcia naukowe.">
+<meta property="og:title" content="Słownik pojęć — Starożytne Wedy, karma i świadomość">
+<meta property="og:description" content="Terminy wedyjskie i sanskryckie, model świadomości, pojęcia naukowe — słownik haseł z podcastu Cypriana Majchera z gościnią Moniką Burzyńską.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0f0d0a;
+    --bg-soft: #151209;
+    --surface: #1a1712;
+    --surface-2: #201c15;
+    --border: #2c2618;
+    --gold: #c9a227;
+    --gold-bright: #e6c96a;
+    --gold-dim: #8a7223;
+    --text: #e9e2d2;
+    --muted: #a89d86;
+    --faint: #7a7160;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; scroll-padding-top: 90px; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Inter', system-ui, sans-serif;
+    font-weight: 300;
+    line-height: 1.75;
+    -webkit-font-smoothing: antialiased;
+  }
+  ::selection { background: rgba(201,162,39,.35); color: #fff; }
+
+  /* ---------- top bar ---------- */
+  .topbar {
+    position: sticky; top: 0; z-index: 100;
+    display: flex; align-items: center; gap: 20px;
+    padding: 14px 28px;
+    background: rgba(15,13,10,.88);
+    backdrop-filter: blur(14px);
+    border-bottom: 1px solid var(--border);
+  }
+  .topbar .brand {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.15rem; font-weight: 600;
+    color: var(--gold-bright);
+    letter-spacing: .04em;
+    white-space: nowrap;
+  }
+  .topbar .brand span { color: var(--faint); font-style: italic; font-weight: 400; }
+  .search-wrap { position: relative; flex: 1; max-width: 420px; margin-left: auto; }
+  .search-wrap svg {
+    position: absolute; left: 14px; top: 50%; transform: translateY(-50%);
+    width: 15px; height: 15px; stroke: var(--faint); pointer-events: none;
+  }
+  #search {
+    width: 100%;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    color: var(--text);
+    font-family: 'Inter', sans-serif;
+    font-size: .85rem;
+    padding: 9px 16px 9px 40px;
+    outline: none;
+    transition: border-color .25s, box-shadow .25s;
+  }
+  #search::placeholder { color: var(--faint); }
+  #search:focus { border-color: var(--gold-dim); box-shadow: 0 0 0 3px rgba(201,162,39,.12); }
+
+  /* ---------- hero ---------- */
+  .hero {
+    position: relative;
+    padding: 90px 28px 70px;
+    text-align: center;
+    border-bottom: 1px solid var(--border);
+    background:
+      radial-gradient(ellipse 80% 60% at 50% -10%, rgba(201,162,39,.09), transparent 60%),
+      var(--bg);
+    overflow: hidden;
+  }
+  .hero::after {
+    content: "ॐ";
+    position: absolute; inset: 0;
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(20rem, 45vw, 34rem);
+    color: rgba(201,162,39,.045);
+    pointer-events: none;
+    user-select: none;
+  }
+  .hero-inner { position: relative; z-index: 1; max-width: 860px; margin: 0 auto; }
+  .hero .eyebrow {
+    font-size: .72rem; letter-spacing: .35em; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 22px; font-weight: 500;
+  }
+  .hero h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2.4rem, 6vw, 4.2rem);
+    font-weight: 600;
+    line-height: 1.12;
+    color: var(--text);
+    margin-bottom: 18px;
+  }
+  .hero h1 em { color: var(--gold-bright); font-style: italic; font-weight: 500; }
+  .hero .film-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: clamp(1.05rem, 2.2vw, 1.3rem);
+    color: var(--muted);
+    max-width: 640px; margin: 0 auto 34px;
+  }
+  .hero-meta {
+    display: flex; flex-wrap: wrap; justify-content: center; gap: 10px 28px;
+    font-size: .8rem; color: var(--faint);
+    letter-spacing: .03em;
+  }
+  .hero-meta b { color: var(--muted); font-weight: 500; }
+  .hero-topics {
+    max-width: 720px; margin: 34px auto 0;
+    font-size: .92rem; color: var(--muted);
+    border-top: 1px solid var(--border); padding-top: 26px;
+  }
+  .hero-note {
+    max-width: 720px; margin: 20px auto 0;
+    font-size: .82rem; color: var(--faint); font-style: italic;
+  }
+  .hero-note i { color: var(--gold-dim); }
+
+  /* ---------- layout ---------- */
+  .layout {
+    display: grid;
+    grid-template-columns: 240px minmax(0, 1fr);
+    gap: 60px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 60px 28px 100px;
+  }
+  .sidebar { position: sticky; top: 90px; align-self: start; }
+  .sidebar .nav-label {
+    font-size: .68rem; letter-spacing: .3em; text-transform: uppercase;
+    color: var(--faint); margin-bottom: 16px; font-weight: 500;
+  }
+  .sidebar nav a {
+    display: block;
+    padding: 8px 0 8px 16px;
+    border-left: 1px solid var(--border);
+    color: var(--muted);
+    text-decoration: none;
+    font-size: .85rem;
+    transition: color .2s, border-color .2s;
+  }
+  .sidebar nav a:hover { color: var(--gold-bright); }
+  .sidebar nav a.active { color: var(--gold-bright); border-left-color: var(--gold); }
+
+  /* ---------- sections ---------- */
+  section.glossary { margin-bottom: 80px; }
+  .section-head { margin-bottom: 36px; }
+  .section-head .num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: .95rem; color: var(--gold); letter-spacing: .25em;
+    display: block; margin-bottom: 6px;
+  }
+  .section-head h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(1.7rem, 3.5vw, 2.3rem);
+    font-weight: 600;
+    color: var(--text);
+    padding-bottom: 14px;
+    border-bottom: 1px solid var(--border);
+    position: relative;
+  }
+  .section-head h2::after {
+    content: ""; position: absolute; left: 0; bottom: -1px;
+    width: 72px; height: 1px; background: var(--gold);
+  }
+
+  .term {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-left: 2px solid var(--gold-dim);
+    border-radius: 4px;
+    padding: 26px 30px;
+    margin-bottom: 18px;
+    transition: border-color .3s, transform .3s, background .3s;
+  }
+  .term:hover {
+    border-left-color: var(--gold);
+    background: var(--surface-2);
+    transform: translateX(3px);
+  }
+  .term h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.45rem; font-weight: 600;
+    color: var(--gold-bright);
+    margin-bottom: 4px;
+  }
+  .term .transcript {
+    display: block;
+    font-size: .75rem; color: var(--faint); font-style: italic;
+    margin-bottom: 12px; letter-spacing: .02em;
+  }
+  .term h3:not(.has-transcript) { margin-bottom: 12px; }
+  .term p { font-size: .93rem; color: var(--text); }
+  .term p + p, .term ul + p { margin-top: 10px; }
+  .term ul { margin: 10px 0 0 4px; list-style: none; }
+  .term ul li {
+    position: relative;
+    font-size: .93rem;
+    padding-left: 22px; margin-bottom: 8px;
+  }
+  .term ul li::before {
+    content: "◆"; position: absolute; left: 0; top: 1px;
+    font-size: .55rem; color: var(--gold-dim);
+  }
+  .term ol { margin: 12px 0 0 0; padding-left: 0; list-style: none; counter-reset: kosza; }
+  .term ol li {
+    counter-increment: kosza;
+    position: relative;
+    font-size: .93rem;
+    padding: 14px 0 14px 46px;
+    border-top: 1px dashed var(--border);
+  }
+  .term ol li:first-child { border-top: none; padding-top: 4px; }
+  .term ol li::before {
+    content: counter(kosza);
+    position: absolute; left: 0; top: 14px;
+    width: 28px; height: 28px;
+    display: flex; align-items: center; justify-content: center;
+    border: 1px solid var(--gold-dim); border-radius: 50%;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: .85rem; color: var(--gold);
+  }
+  .term ol li:first-child::before { top: 4px; }
+  .term b, .term strong { color: var(--gold-bright); font-weight: 500; }
+  .term i, .term em { color: var(--gold-bright); }
+  .term .quote {
+    margin-top: 12px; padding: 12px 18px;
+    border-left: 1px solid var(--gold-dim);
+    background: rgba(201,162,39,.05);
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic; font-size: 1.02rem; color: var(--muted);
+  }
+
+  /* ---------- tables ---------- */
+  .table-wrap {
+    border: 1px solid var(--border); border-radius: 4px;
+    overflow: hidden; background: var(--surface);
+  }
+  table { width: 100%; border-collapse: collapse; font-size: .9rem; }
+  th {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1rem; font-weight: 600; color: var(--gold-bright);
+    text-align: left; padding: 14px 20px;
+    background: rgba(201,162,39,.06);
+    border-bottom: 1px solid var(--border);
+  }
+  td { padding: 12px 20px; border-bottom: 1px solid var(--border); vertical-align: top; color: var(--text); }
+  tr:last-child td { border-bottom: none; }
+  tr:hover td { background: rgba(201,162,39,.03); }
+  td.time { font-family: 'Cormorant Garamond', serif; color: var(--gold); white-space: nowrap; font-size: 1rem; }
+  td.name { font-weight: 500; color: var(--gold-bright); white-space: nowrap; }
+
+  /* ---------- footer ---------- */
+  footer {
+    border-top: 1px solid var(--border);
+    padding: 50px 28px 60px;
+    text-align: center;
+    background: var(--bg-soft);
+  }
+  footer .om {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2rem; color: var(--gold-dim); margin-bottom: 16px;
+  }
+  footer p { max-width: 680px; margin: 0 auto 8px; font-size: .8rem; color: var(--faint); font-style: italic; }
+
+  .no-results {
+    display: none;
+    text-align: center; padding: 60px 20px;
+    font-family: 'Cormorant Garamond', serif; font-style: italic;
+    font-size: 1.3rem; color: var(--faint);
+  }
+
+  /* ---------- responsive ---------- */
+  @media (max-width: 900px) {
+    .layout { grid-template-columns: 1fr; gap: 40px; padding-top: 40px; }
+    .sidebar {
+      position: static;
+      display: flex; flex-wrap: wrap; gap: 4px 0;
+      border-bottom: 1px solid var(--border); padding-bottom: 20px;
+    }
+    .sidebar .nav-label { width: 100%; }
+    .sidebar nav { display: flex; flex-wrap: wrap; gap: 6px 18px; }
+    .sidebar nav a { border-left: none; border-bottom: 1px solid transparent; padding: 4px 0; }
+    .sidebar nav a.active { border-bottom-color: var(--gold); border-left: none; }
+    .topbar .brand span { display: none; }
+  }
+  @media (max-width: 560px) {
+    .topbar { padding: 12px 16px; }
+    .hero { padding: 60px 18px 50px; }
+    .layout { padding: 36px 16px 80px; }
+    .term { padding: 20px; }
+    th, td { padding: 10px 12px; font-size: .82rem; }
+    td.name { white-space: normal; }
+  }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="brand">Wedy · Karma · Świadomość <span>/ słownik pojęć</span></div>
+  <div class="search-wrap">
+    <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+    <input type="search" id="search" placeholder="Szukaj hasła… np. karma, purusza, samadhi" aria-label="Szukaj hasła">
+  </div>
+</div>
+
+<header class="hero">
+  <div class="hero-inner">
+    <div class="eyebrow">Słownik pojęć z filmu</div>
+    <h1>Starożytne <em>Wedy</em>,<br>karma i świadomość</h1>
+    <p class="film-title">„Starożytne Wedy wyprzedziły naukę. Jak zresetować negatywną karmę? Monika Burzyńska"</p>
+    <div class="hero-meta">
+      <span><b>Kanał:</b> Cyprian Majcher</span>
+      <span><b>Data publikacji:</b> 17 września 2026 r.</span>
+      <span><b>Długość:</b> 1:44:30</span>
+    </div>
+    <div class="hero-meta" style="margin-top:14px;">
+      <span><b>Gość:</b> Monika Burzyńska — lekarz, psychotronik i psycholog tantry; w pracy łączy wykształcenie medyczne, psychologię zorientowaną na wartości, medytację, psychotronikę, tantrę, pracę z archetypami i wiedzę duchową.</span>
+    </div>
+    <p class="hero-topics"><b style="color:var(--gold);font-weight:500;">Tematyka rozmowy:</b> umysł, emocje i życie na autopilocie z perspektywy starożytnej wiedzy wedyjskiej; czego nauka nie wie o stworzeniu świata według Wed; mądrość natury i prawa naturalne; jak relacje intymne pozostawiają ślad w naszej karmie.</p>
+    <p class="hero-note">Uwaga redakcyjna: transkrypcja automatyczna zniekształciła część terminów sanskryckich (np. „poruszam" zamiast <i>purusza</i>, „sam skar" zamiast <i>namaskar</i>). W słowniku podano formy poprawne, a w nawiasach — brzmienie z transkrypcji, jeśli istotnie odbiega od oryginału.</p>
+  </div>
+</header>
+
+<div class="layout">
+  <aside class="sidebar">
+    <div class="nav-label">Spis treści</div>
+    <nav id="nav">
+      <a href="#sekcja-1">Terminy wedyjskie i sanskryckie</a>
+      <a href="#sekcja-2">Model świadomości z rozmowy</a>
+      <a href="#sekcja-3">Pojęcia naukowe i psychologiczne</a>
+      <a href="#sekcja-4">Osoby i źródła</a>
+      <a href="#sekcja-5">Rozdziały filmu</a>
+    </nav>
+  </aside>
+
+  <main>
+    <div class="no-results" id="noResults">Żadne hasło nie pasuje do wyszukiwania…</div>
+
+    <!-- ============ SEKCJA 1 ============ -->
+    <section class="glossary" id="sekcja-1">
+      <div class="section-head">
+        <span class="num">SEKCJA 1</span>
+        <h2>Terminy wedyjskie i sanskryckie</h2>
+      </div>
+
+      <article class="term">
+        <h3>Wedy</h3>
+        <p>Najstarsze święte teksty hinduizmu, w rozmowie określane jako „instrukcja obsługi wszechświata". Monika Burzyńska podkreśla, że Wedy powstały w <b>stanie satwicznym</b> — stanie rozszerzonej świadomości, w którym pierwotne kultury (Hindusi, Indianie, Aborygeni, Eskimosi) „podłączały się do wiedzy źródła" i ją spisywały. Wedy są jednym z takich zapisów. Ich wiedza ma się przekładać „matematycznie precyzyjnie" na funkcjonowanie świadomości, fizjologii i współczesną neurobiologię.</p>
+      </article>
+
+      <article class="term">
+        <h3 class="has-transcript">Purusza</h3>
+        <span class="transcript">w transkrypcji: „poruszam"</span>
+        <p>Duch; nieskończona, kosmiczna dusza — Bóg/wszechświat. W koncepcji wedyjskiej to purusza wciela się w prakriti (materię) i ją ożywia. Świadomość nie jest więc funkcją mózgu (jak twierdziła nauka XIX-wieczna), lecz odwrotnie: duch używa materii i mózgu, by tworzyć zjawisko świadomości. Purusza „siada na trybunach z popcornem" i obserwuje dramat życia — to on jest wewnętrznym świadkiem. W Kybalionie opisywany jako to, co „porusza się najszybciej" (najwyższa wibracja).</p>
+      </article>
+
+      <article class="term">
+        <h3 class="has-transcript">Prakriti</h3>
+        <span class="transcript">w transkrypcji: „brakiti"</span>
+        <p>Materia — całkowite przeciwieństwo puruszy: to, co się nie porusza (skrajny przykład: 0 K, –273 °C, gdzie zamierają drgania atomowe). Według rozmówczyni materia jest „zatrzymaną formą fali myślowych", a więc także Bogiem — człowiek jako ahamkara znajduje się „w iluzji pomiędzy" Bogiem-duchem a Bogiem-materią. Sztuka życia według Bhagawadgity to panowanie nad puruszą i prakriti.</p>
+      </article>
+
+      <article class="term">
+        <h3>Tat twam asi</h3>
+        <p>Słynne zdanie z Upaniszad: „jesteś tym" — oznacza jedność duszy indywidualnej z absolutem. Punkt wyjścia rozmowy o tym, czym naprawdę jest człowiek.</p>
+      </article>
+
+      <article class="term">
+        <h3 class="has-transcript">Upaniszady</h3>
+        <span class="transcript">w transkrypcji: „upaniszany"</span>
+        <p>Teksty wedyjskie zawierające naukę o jedności duszy z absolutem; cytowane jako źródło formuły <i>tat twam asi</i>.</p>
+      </article>
+
+      <article class="term">
+        <h3 class="has-transcript">Bhagawadgita</h3>
+        <span class="transcript">w transkrypcji: „bahagawad gita" / „behagawatgita"</span>
+        <p>„Pieśń Pana" — kluczowy tekst wedyjski. Przywoływana dwukrotnie: (1) nauka o władaniu nad puruszą i prakriti jako warunku wyjścia z „zamku iluzji"; (2) fragment, że ci, którzy źle traktują ciało (np. niewłaściwym jedzeniem), są uważani za demony, bo torturują nie tylko ciało, lecz także nieśmiertelną duszę wszechświata w nim zawartą.</p>
+      </article>
+
+      <article class="term">
+        <h3>Maja</h3>
+        <p>Iluzja. Zestawiane z <i>koszą</i>: „maja to iluzja, kosza to ciało" — stąd pięć powłok człowieka to „pięć powłok iluzji" (w rozmowie żartobliwie: „t-shirciki iluzji").</p>
+      </article>
+
+      <article class="term">
+        <h3 class="has-transcript">Pancza kosza (pancha kosha)</h3>
+        <span class="transcript">w transkrypcji: „pancia kosia"</span>
+        <p>Teoria pięciu powłok (ciał) człowieka, zilustrowana w rozmowie matrioszką. Duch (purusza) „daje nura" w materię i zakłada na siebie kolejne powłoki iluzji; z każdą traci pamięć o tym, kim jest. To, z którą powłoką się utożsamisz, determinuje twój sposób życia. Pięć powłok (od najgrubszej do najsubtelniejszej):</p>
+        <ol>
+          <li><b>Annamaja kosza</b> (w transkrypcji: „Ana Maja Kosza") — ciało fizyczne, „mięsko". Utożsamienie z nią = „poziom zwierzęcia": szczęście to jeść, spać, zaspokajać instynkty. Zdaniem rozmówczyni na tym poziomie żyje większość ludzi.</li>
+          <li><b>Pranamaja kosza</b> (w transkrypcji: „prana Maja Kosia") — oddech, energia, odczucia i emocje. Utożsamienie z nią czyni człowieka „automatem, biorobotem" rządzonym programami i instynktami.</li>
+          <li><b>Manomaja kosza</b> — umysł, świadomość logiczna. Tu „ludzie najbardziej błądzą", bo myślą, że „pozżerali wszystkie umysły", a są skazani na ograniczoną bazę danych własnej pamięci, przeczytanych książek i znajomych. Tu operuje cała współczesna psychologia.</li>
+          <li><b>Wijnanamaja kosza</b> (w transkrypcji: „wina na Maja Kosza") — ciało, którym łączymy się z „super umysłem wszechświata" (akaszą). Mózg działa tu jak antena nadawczo-odbiorcza: wiesz rzeczy, których nie napisano w książkach, „i to się sprawdza".</li>
+          <li><b>Anandamaja kosza</b> — najmniejsza matrioszka, „ziarno duszy", dusza zawarta w mięście. Tu siedzi <b>czitta</b> — całe oprogramowanie i cała pamięć, „nie tylko z tego życia, tylko cała gwiezdna pamięć". Od tego oprogramowania zależy — zdaniem rozmówczyni — „jak ładny albo brzydki jesteś, jak mądry albo głupi".</li>
+        </ol>
+      </article>
+
+      <article class="term">
+        <h3>Manas</h3>
+        <p>Zmysły (wzrok, słuch, dotyk, smak, węch). W metaforze rydwanu świadomości — konie, które wiodą człowieka; cała przyroda wchodząca przez zmysły musi zostać przeanalizowana.</p>
+      </article>
+
+      <article class="term">
+        <h3 class="has-transcript">Buddhi</h3>
+        <span class="transcript">w transkrypcji: „Buddi"</span>
+        <p>Intelekt, zdolność analizy i rozróżniania. W metaforze rydwanu — woźnica powodujący końmi (manas): decyduje „to jest logiczne, to nielogiczne, to ciepłe, to zimne, tego chcę, tego nie chcę".</p>
+      </article>
+
+      <article class="term">
+        <h3>Ahamkara</h3>
+        <p>Ego — „ta część ciebie, która absolutnie uważa, że to jej się wszystko dzieje". Pasażer rydwanu świadomości. To ahamkara doświadcza bólu, podczas gdy purusza tylko obserwuje („gra w Simsy"). Zanik ahamkary = patrzenie na własne emocje z dystansem, „jak na chmury na niebie".</p>
+      </article>
+
+      <article class="term">
+        <h3 class="has-transcript">Czitta</h3>
+        <span class="transcript">w transkrypcji: „Aita", „cata", „cita"</span>
+        <p>Pamięć; magazyn wszystkich programów, samskar i wasan — zawarta w anandamaja koszy. To czitta „predefiniuje" zachowanie człowieka na falach beta. W rozmowie również określenie samego rydwanu/„samochodzika", którym jedziemy przez życie: „do jakiej kary wsiadłeś, taką jedziesz" — można wsiąść do „BMW M5" albo do „Fiata Multipli".</p>
+      </article>
+
+      <article class="term">
+        <h3 class="has-transcript">Samskary i wasany</h3>
+        <span class="transcript">w transkrypcji: „sam scary i wasany"</span>
+        <p>Zapisy karmiczne w czitcie — dwa rodzaje „oprogramowania":</p>
+        <ul>
+          <li><b>karmiczne programy do uwolnienia</b> — niedomknięte, traumatyczne sytuacje (por. teoria Gestalt: niedomknięta trauma tworzy napięcie, które „jątrzy" i pcha do odtworzenia identycznych warunków — w psychiatrii: retraumatyzacja ofiary). Np. relacje osób, które „zabiły się w dawnych życiach" i muszą „wyrównać rachunki".</li>
+          <li><b>wasany i samskary jako „zapach duszy"</b> — pęd, pragnienia i marzenia zasiane przez Boga, które purusza chce przez ciebie zrealizować (misja, powołanie; por. dharma).</li>
+        </ul>
+      </article>
+
+      <article class="term">
+        <h3 class="has-transcript">Akasza</h3>
+        <span class="transcript">w transkrypcji: „akasz"</span>
+        <p>Przestrzeń; pamięć wszechświata, „wielki umysł wszechświata", umysł Boga. Połączenie z akaszą następuje na poziomie wijnanamaja koszy, gdy mózg działa jak antena. Przez kontakt z akaszą zaczynamy dostrzegać połączenia karmiczne z innymi ludźmi.</p>
+      </article>
+
+      <article class="term">
+        <h3>Brahman</h3>
+        <p>Pierwotny stan/absolut — „wszystko, co jest, odbywa się wewnątrz umysłu Boga". Wszechmogący Brahman „sprawdza swoje możliwości", zakładając na siebie kolejne iluzje (pancza kosze) i doświadczając samego siebie — stąd odpowiedź Wed na pytanie „po co duch przychodzi do materii".</p>
+      </article>
+
+      <article class="term">
+        <h3>Satwa / stan satwiczny</h3>
+        <p>Najwyższy, czysty stan funkcjonowania świadomości — „rozszerzony mózg", w którym człowiek realnie ocenia rzeczywistość i łączy się z wiedzą źródła. W tym stanie powstawały Wedy i wiedza wszystkich pierwotnych kultur. Włącza się m.in. przez pracę oddechem (aktywacja brzusznej gałęzi nerwu błędnego). Zaczyna się na poziomie „umysłu żurawia".</p>
+      </article>
+
+      <article class="term">
+        <h3 class="has-transcript">Samadhi</h3>
+        <span class="transcript">w transkrypcji: „Samandi"</span>
+        <p>Stan oświecenia; „umysł zatrzymany" — całkowity stop myśli. Wtedy „budzisz się jako purusza": uświadamiasz sobie, że jesteś częścią Boga, która na wszystko patrzy. Świadomość jest wtedy „tak szybka, że bez poruszania jest wszędzie i wypełnia cały wszechświat jak akasza". W skrajnych opisach: jeden oddech na 30 dni, a w głębokim samadhi nawet rzadszy (rozmówczyni nazywa to „buddyjskim science fiction").</p>
+      </article>
+
+      <article class="term">
+        <h3>Karma</h3>
+        <p>W rozmowie zdefiniowana jako <b>algorytm losu</b>: bodziec → reakcja emocjonalna → wybór/decyzja → nawyk → charakter → los („twój charakter staje się twoim losem"). Nie jest kosmicznym systemem kar i nagród ani „kredytem do spłacenia co do złotówki" (to zachodnie przekłamanie) — jest <b>wymianą</b>. Choroba jako karma = „fizjologiczna zapłata za to, że nie umiesz się prowadzić" (emocje → napięcia → stany chorobowe; por. totalna biologia i mapa emocji taoistów). Kluczowa teza: <b>karmy nie trzeba odrabiać</b> — można ją zakończyć świadomie (zrozumienie, wybaczenie, zadośćuczynienie; por. ho'oponopono).</p>
+      </article>
+
+      <article class="term">
+        <h3 class="has-transcript">Dharma</h3>
+        <span class="transcript">w transkrypcji: „darmiczne"</span>
+        <p>Prawdziwa natura, misja, powołanie — to, co robisz, kiedy „czujesz się prawdziwy". Relacje <b>dharmiczne</b>: związki zgodne do końca życia, w przeciwieństwie do relacji karmicznych (wyrównujących rachunki).</p>
+        <div class="quote">„Jaką mam misję? Głosić słowo boże przez Wedy — to jest moja natura" (M. Burzyńska).</div>
+      </article>
+
+      <article class="term">
+        <h3 class="has-transcript">Samsara</h3>
+        <span class="transcript">w transkrypcji: „sam Sara"</span>
+        <p>Koło wcieleń; „świat cierpienia, świat bólu". Szkoły jogiczne uczą ucieczki z samsary; <b>tantra</b> (którą reprezentuje rozmówczyni) uczy odwrotnie: „gdzie się urodziłeś, tam jesteś — i zmieniasz ten piekielny świat w raj".</p>
+      </article>
+
+      <article class="term">
+        <h3>Tantra</h3>
+        <p>Ścieżka duchowa, której praktykiem jest Monika Burzyńska. Nauka o pełnym doświadczaniu materii, emocji i cielesności bez zatracania się w nich: „jestem w orgazmie, nie zatracam się w orgazmie; jestem w bogactwie, nie zatracam się w bogactwie". Nie ucieczka do jaskini w Himalajach, lecz praca tu, w życiu.</p>
+      </article>
+
+      <article class="term">
+        <h3 class="has-transcript">Ahimsa</h3>
+        <span class="transcript">w transkrypcji: „Achimsa"</span>
+        <p>Zasada niewyrządzania krzywdy (m.in. niejedzenia zwierząt). Przywołana w przykładzie „oprogramowań o przeciwnym spinie": przekonanie „nie jem zwierząt (ahimsa)" w konflikcie z przekonaniem „chcę zjeść mięso" rodzi wewnętrzną wojnę i trzyma człowieka w „umyśle małpy".</p>
+      </article>
+
+      <article class="term">
+        <h3 class="has-transcript">Namaskar</h3>
+        <span class="transcript">w transkrypcji: „sam skar"</span>
+        <p>Hinduskie powitanie bez podania ręki (złożone dłonie). Uzasadnienie podane w rozmowie: przez dotyk dłoni następuje wymiana pamięci i przekonań (patrz: matryca energoinformacyjna, spin); powitanie bez dotyku pozwala zachować spójność własnej świadomości i „spokojniej osiągnąć oświecenie".</p>
+      </article>
+
+      <article class="term">
+        <h3>Nada Joga</h3>
+        <p>Joga dźwięku — praca z „pierwotnym dźwiękiem" jako droga do wyższych stanów świadomości; jedno z narzędzi przejścia „z umysłu małpy do umysłu punktowego".</p>
+      </article>
+
+      <article class="term">
+        <h3>Asany</h3>
+        <p>Pozycje jogiczne — „dyscyplina ciała, przyjmowanie określonych poz, przez które inaczej płynie energia"; uspokajają i wyciszają umysł. Jedna z dróg (obok pracy z oddechem i dźwiękiem) do wyższych stanów świadomości.</p>
+      </article>
+    </section>
+
+    <!-- ============ SEKCJA 2 ============ -->
+    <section class="glossary" id="sekcja-2">
+      <div class="section-head">
+        <span class="num">SEKCJA 2</span>
+        <h2>Model świadomości z rozmowy <span style="font-size:.55em;color:var(--faint);font-style:italic;">(metafory i pojęcia robocze)</span></h2>
+      </div>
+
+      <article class="term">
+        <h3>Rydwan świadomości</h3>
+        <p>Metafora z Wed i Gurdźijewa: człowiek jako rydwan, w którym <b>konie = manas</b> (zmysły), <b>woźnica = buddhi</b> (intelekt), <b>pasażer = ahamkara</b> (ego), a <b>sam rydwan = czitta</b> (pamięć, programy). Widz na trybunach z popcornem = purusza (duch). Rydwan porusza się z różnymi „prędkościami" — stanami umysłu.</p>
+      </article>
+
+      <article class="term">
+        <h3>Prędkości umysłu (stany świadomości)</h3>
+        <p>Pięć „prędkości rydwanu", od najgorszej do najwyższej:</p>
+        <ol>
+          <li><b>Umysł małpy (prędkość małpy)</b> — maksymalnie rozproszony umysł, skaczący „z gałęzi na gałąź"; ciągłe wewnętrzne wojny sprzecznych przekonań. Odpowiada aktywacji autonomicznego układu nerwowego na poziomie diafragmy; ciągłe fale beta. „Szczęście" na tym poziomie: wygrać na światłach, być lepszym, udowodnić wartość.</li>
+          <li><b>Umysł osła (prędkość osła)</b> — stan wypalenia, zamrożenia (grzbietowa gałąź nerwu błędnego): „jesteś zamrożony, przerażony, nic nie możesz". Szczęście: „zasnąć z piwem przed Netflixem". Społeczeństwo skacze między małpą a osłem — „pomiędzy ADHD a wypaleniem".</li>
+          <li><b>Umysł motyla</b> — umysł „samoogarniający się": jeszcze chaos, ale już wiesz, „że gdzieś dzwoni, tylko nie wiesz, w którym kościele". Zaczyna włączać się wewnętrzny obserwator.</li>
+          <li><b>Umysł żurawia (umysł punktowy, skupiony)</b> — skupienie laserowe: budowanie złożonych projektów, „wszystko skupione na punkcie, a wszystko inne się rozpuszcza". Tu zaczyna się wiedza wedyjska i świadomość satwiczna.</li>
+          <li><b>Umysł zatrzymany</b> — totalny stop myśli; wejście w samadhi (oświecenie). Por. praktyka zatrzymania myśli w tybetańskim bon.</li>
+        </ol>
+      </article>
+
+      <article class="term">
+        <h3>Wewnętrzny obserwator</h3>
+        <p>Kluczowe pojęcie rozmowy: „przestrzeń wyboru" między bodźcem a reakcją. Pojawia się, gdy przestajesz się utożsamiać z powłokami (koszami). Efekty: koniec odruchowych reakcji, wolność od karmy, świadome programowanie własnej percepcji i losu. Według rozmówczyni najwyższy rodzaj inteligencji to „umiejętność zobaczenia własnego szkodliwego oprogramowania i jego elastycznej zmiany".</p>
+        <div class="quote">„Kiedy wytworzyłam w sobie wewnętrznego obserwatora, skończyła się potrzeba jakiejkolwiek psychoterapii" (M. Burzyńska).</div>
+      </article>
+
+      <article class="term">
+        <h3>Autopilot / biorobot</h3>
+        <p>Życie rządzone zapisanymi programami (samskarami) bez świadomości: „myślisz, że jesteś świadomy, ale programy tobą rządzą — jest akcja i reakcja". Człowiek na autopilocie = „zwierzątko", „maszyna", „biorobot". Wyjście z autopilota = praktyka: „Ja nie jestem tymi myślami, nie jestem tymi emocjami, nie jestem tym ciałem".</p>
+      </article>
+
+      <article class="term">
+        <h3>Oprogramowanie (wewnętrzne)</h3>
+        <p>Cała pamięć i interpretacje doświadczeń — przekonania, schematy myślowe, programy zapisane w czitcie. „Nie tworzenie rzeczywistości, tylko zmiana oprogramowania percepcji" — definicja pracy psychotronika. Programy o <b>przeciwnym spinie</b> (sprzeczne przekonania w jednej osobie) powodują nieustanny konflikt wewnętrzny.</p>
+      </article>
+
+      <article class="term">
+        <h3>Spin (przekonań)</h3>
+        <p>Określenie „kierunku" przekonania, zapożyczone z fizyki (Boris Ratnikow): dwa poglądy o przeciwnych spinach w jednej osobie = permanentna wewnętrzna wojna. Przez dotyk (np. podanie ręki) przekonania mogą „przepełzać" między ludźmi.</p>
+      </article>
+
+      <article class="term">
+        <h3>Matrioszka (mięsna)</h3>
+        <p>Rekwizyt i metafora z rozmowy: pięć zagnieżdżonych lalek = pancza kosza (pięć powłok iluzji). „Matrioszka pokazuje wedyjską teorię pięciu t-shircików". Człowiek „wystaje poza swoje mięsko" — pole energoinformacyjne wykracza poza ciało, stąd wymiana energii bez dotyku.</p>
+      </article>
+
+      <article class="term">
+        <h3>Zamek iluzji (zamek tantryczny)</h3>
+        <p>Metafora uwięzienia w własnych iluzjach/programach: „większość z nas żyje zamknięta w zamku swoich iluzji… siedzisz w tym zamku i nawet nie wiesz, że w nim jesteś". Wyjście z zamku = nauka panowania nad puruszą i prakriti (Bhagawadgita).</p>
+      </article>
+
+      <article class="term">
+        <h3>„Gra w Simsy"</h3>
+        <p>Metafora rozmówczyni: Bóg/wszechświat przez człowieka „gra na Ziemi w Simsy" — purusza zakłada iluzje i obserwuje, jak ego (ahamkara) odgrywa swój dramat. Kontrapunkt dla New Age: nie „ty jesteś bogiem", lecz „wszechświat wciela się w ciebie" — jesteś cząstką Boga, nie Bogiem (ostrożność wobec „duchowego narcyzmu, duchowego ego").</p>
+      </article>
+
+      <article class="term">
+        <h3>Algorytm losu</h3>
+        <p>Patrz: <b>karma</b>. Łańcuch: bodziec → emocja → decyzja → nawyk → charakter → los. Zmiana możliwa tylko przez wewnętrznego obserwatora („nie muszę skręcać w prawo — mogę pojechać prosto albo w lewo").</p>
+      </article>
+
+      <article class="term">
+        <h3>Tunel percepcji</h3>
+        <p>Indywidualny kanał postrzegania rzeczywistości, który można świadomie przeprogramować. „Niczym się to nie różni od prawa przyciągania, ale nie jest to tworzenie rzeczywistości — tylko świadome zaprogramowanie percepcji".</p>
+      </article>
+
+      <article class="term">
+        <h3>Matryca energoinformacyjna</h3>
+        <p>Cała pamięć człowieka wystająca „poza mięsną matrioszkę" — pole niewidzialne, którym wymieniamy się z innymi (dotyk, jedzenie, pocałunek, seks). W akcie intymnym matryce łączą się trwale: „jesteś ty plus pamięć tej kobiety".</p>
+      </article>
+
+      <article class="term">
+        <h3>Zapis telegoniczny / telegonia</h3>
+        <p>Pogląd (nie z źródeł wedyjskich — rozmówczyni cytuje m.in. „Dzwoniące Cedry Rosji" Wladimira Megre), że w ciele kobiety zostaje „zapis" wszystkich poprzednich partnerów: dziecko jest genetycznie ojca, a „energetycznie miksem tych panów". Energia partnera utrzymuje się rzekomo 30 dni u mężczyzny i 7 lat u kobiety. W rozmowie wspomniane „protokoły czyszczenia" zapisów (Inuici, żercy słowiańscy, seria o Anastazji).</p>
+      </article>
+
+      <article class="term">
+        <h3>Runa Avanda / Runa Nabanda</h3>
+        <p>„Niewidzialne zobowiązania" — wymiana energii między ludźmi wchodzącymi w fizyczną interakcję; pojęcie przywołane z wcześniejszego wywiadu z M. Burzyńską.</p>
+      </article>
+
+      <article class="term">
+        <h3>Relacje karmiczne vs dharmiczne</h3>
+        <p>Relacje karmiczne: związki tworzone z „niewyrównanych rachunków" z dawnych żyć (wg nauczyciela Lwa Kłykowa większość małżeństw). Sygnał ostrzegawczy: nagły, silny „strzał" — miłość od pierwszego wejrzenia („im bardziej cię erotycznie ciągnie, wiedz, że to karma"). Relacje dharmiczne: zgodne, z własnej natury. Karmicznych relacji nie trzeba „odrabiać" — można je świadomie zakończyć.</p>
+      </article>
+
+      <article class="term">
+        <h3>Dług karmiczny</h3>
+        <p>W rozmowie zdekonstruowany: „to nie jest dług — to wymiana". Karma nie jest kredytem do spłacenia; kluczem jest zrozumienie lekcji, wybaczenie i zadośćuczynienie (por. ho'oponopono), a nie mechaniczne „odrabianie".</p>
+      </article>
+
+      <article class="term">
+        <h3 class="has-transcript">Ho'oponopono</h3>
+        <span class="transcript">w transkrypcji: „Hoponopono", „chonoponu"</span>
+        <p>Hawajska praktyka/modlitwa: „Przepraszam, wybacz mi, dziękuję, kocham cię". Określona jako „modlitwa kasująca karmę": zrozumienie → współczucie → zadośćuczynienie → wybaczenie sobie → „koniec karmy".</p>
+      </article>
+    </section>
+
+    <!-- ============ SEKCJA 3 ============ -->
+    <section class="glossary" id="sekcja-3">
+      <div class="section-head">
+        <span class="num">SEKCJA 3</span>
+        <h2>Pojęcia naukowe i psychologiczne przywołane w rozmowie</h2>
+      </div>
+
+      <article class="term">
+        <h3>Teoria poliwagalna i nerw błędny</h3>
+        <p>„Koń" rozmówczyni jako psychologa: mapowanie prędkości umysłu na układ nerwowy. Grzbietowa gałąź nerwu błędnego = zamrożenie (umysł osła); układ współczulny na poziomie diafragmy = umysł małpy; brzuszna gałąź nerwu błędnego = umysł motyla i żurawia. Mózg i nerw błędny „nie są w stanie być w dwóch trybach na raz" — stąd skuteczność protokołów oddechowych.</p>
+      </article>
+
+      <article class="term">
+        <h3>Oddech kwadratowy</h3>
+        <p>Protokół: wdech na 4, zatrzymanie na 4, wydech na 4, zatrzymanie na 4. „Nie ma takiej opcji, żeby ktoś był w umyśle małpy i się nie wyciszył".</p>
+      </article>
+
+      <article class="term">
+        <h3>Oddech wilka (i: niedźwiedzia, sokoła)</h3>
+        <p>Wedyjskie protokoły oddechowe. Oddech wilka: krótka faza wdechu, bardzo długa faza wydechu („spompowywanie się z powietrza") — przełącza z gałęzi grzbietowej/współczulnej na brzuszną i włącza stan satwiczny.</p>
+      </article>
+
+      <article class="term">
+        <h3>Fale beta</h3>
+        <p>Rytm mózgowy towarzyszący stanom małpy/osła — zachowanie jest wtedy „predefiniowane czittą".</p>
+      </article>
+
+      <article class="term">
+        <h3>Totalna biologia</h3>
+        <p>Kierunek łączący choroby z przeżywanymi emocjami (napięcia, „tarcie, frikcje"). Według rozmówczyni taoiści stworzyli znacznie precyzyjniejszą mapę: każda emocja powoduje wzrost temperatury w określonych narządach → konkretne stany chorobowe.</p>
+      </article>
+
+      <article class="term">
+        <h3>Retraumatyzacja ofiary</h3>
+        <p>Pojęcie psychiatryczne: podświadome odtwarzanie identycznych traumatycznych warunków. Łączone z samskarami — niedomknięte napięcie „pcha" do powtórzenia sytuacji.</p>
+      </article>
+
+      <article class="term">
+        <h3>Teoria Gestalt / modalności</h3>
+        <p>Teoria Gestalt: niedomknięta sytuacja traumatyczna = trwały stan napięcia. <b>Modalności</b>: modele działania świadomości różnych szkół psychologii (Freud, Jung, Gestalt, terapia interpersonalna…) — „każdy stworzył swój własny model"; Wedy zdaniem rozmówczyni dają model najbardziej precyzyjny.</p>
+      </article>
+
+      <article class="term">
+        <h3>Podejście bottom-up</h3>
+        <p>Praca „od ciała do umysłu" (Alexander Lowen, Gabor Maté) w przeciwieństwie do psychoanalizy („od umysłu do ciała"). Gurdźijew: trzeba pracować naraz z ciałem, umysłem i energetyką, „bo któreś z trzech pociągnie jak guma w gaciach i wrócimy do tego, co było".</p>
+      </article>
+
+      <article class="term">
+        <h3>Psychotronika</h3>
+        <p>Dziedzina praktyki M. Burzyńskiej (i jej nauczyciela, gen. Borisa Ratnikowa): „nie tworzenie rzeczywistości, tylko zmiana oprogramowania percepcji".</p>
+      </article>
+
+      <article class="term">
+        <h3>Kybalion</h3>
+        <p>Starożytny tekst hermetyczny opisujący m.in. <b>prawo wibracji</b>: Bóg to to, co wibruje najszybciej (jak szprychy koła pędzącego samochodu, które wydają się stać w miejscu); materia to biegun zatrzymany. „Materia jest zatrzymaną formą fali myślowych".</p>
+      </article>
+
+      <article class="term">
+        <h3>Tabula Smaragdina (Tablica Szmaragdowa)</h3>
+        <p>Hermetyczna zasada: „jako na górze, tak na dole; jak na niebie, tak i na ziemi; jak wewnątrz, tak na zewnątrz" — przywołana przy tezie, że wszechświat jest wielkim umysłem/hologramem.</p>
+      </article>
+
+      <article class="term">
+        <h3>Hologram (wszechświat jako)</h3>
+        <p>Teza: pierwotna natura wszechświata to wielki umysł — „wszechświat jest hologramem".</p>
+      </article>
+
+      <article class="term">
+        <h3>Alchemia taoistyczna</h3>
+        <p>Praktyki pracy z emocjami (Mantak Chia): emocji się nie uwalnia — „ten diabeł w nas będzie, trzeba z nim nauczyć się żyć i pracować".</p>
+      </article>
+
+      <article class="term">
+        <h3>Tybetański bon</h3>
+        <p>Tradycja, z której pochodzi praktyka całkowitego zatrzymania myśli i metafora: myśli jak chmury, prawdziwa natura jak niebo („uświadamiasz sobie, że jesteś niebem").</p>
+      </article>
+    </section>
+
+    <!-- ============ SEKCJA 4 ============ -->
+    <section class="glossary" id="sekcja-4">
+      <div class="section-head">
+        <span class="num">SEKCJA 4</span>
+        <h2>Osoby i źródła wymienione w rozmowie</h2>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Nazwa</th><th>Rola w rozmowie</th></tr></thead>
+          <tbody>
+            <tr><td class="name">Monika Burzyńska</td><td>Gość podcastu; lekarz, psychotronik, psycholog tantry; „tantryk i haker świadomości"</td></tr>
+            <tr><td class="name">Cyprian Majcher</td><td>Prowadzący; mistrz Europy i siedmiokrotny mistrz Polski w rugby, właściciel klubów CrossFit, podcaster</td></tr>
+            <tr><td class="name">Boris Ratnikow</td><td>Generał, psychotronik — nauczyciel M. Burzyńskiej; pojęcie spinu przekonań; „kobieta jest multiplikatorem"</td></tr>
+            <tr><td class="name">Lew Kłykow</td><td>Nauczyciel; teza o małżeństwach jako wyrównywaniu karmy za dawne zabójstwa</td></tr>
+            <tr><td class="name">George Gurdźijew</td><td>„Ukochany nauczyciel"; metafora rydwanu; praca z ciałem, umysłem i energetyką jednocześnie</td></tr>
+            <tr><td class="name">Mantak Chia</td><td>Mistrz taoistyczny; alchemia wewnętrzna, praca z emocjami</td></tr>
+            <tr><td class="name">Zygmunt Freud / Carl Jung</td><td>Twórcy własnych modeli świadomości (modalności); „Jung dosłownie w cieniu"</td></tr>
+            <tr><td class="name">Alexander Lowen, Gabor Maté</td><td>Psycholodzy podejścia bottom-up (przez ciało do umysłu)</td></tr>
+            <tr><td class="name">Wladimir Megre</td><td>Autor serii „Dzwoniące Cedry Rosji" (o Anastazji) — źródło „protokołów oczyszczania pary z zapisów"</td></tr>
+            <tr><td class="name">Inuici, żercy słowiańscy, Aborygeni, Indianie, Eskimosi</td><td>Kultury pierwotne tworzące wiedzę w stanie satwicznym; praktyki „przepalania zapisu telegonicznego"</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ============ SEKCJA 5 ============ -->
+    <section class="glossary" id="sekcja-5">
+      <div class="section-head">
+        <span class="num">SEKCJA 5</span>
+        <h2>Rozdziały filmu (spis treści)</h2>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Czas</th><th>Rozdział</th></tr></thead>
+          <tbody>
+            <tr><td class="time">0:00</td><td>Wstęp</td></tr>
+            <tr><td class="time">2:23</td><td>Skąd czerpać prawdziwą wiedzę?</td></tr>
+            <tr><td class="time">5:15</td><td>Wedy jako instrukcja obsługi wszechświata</td></tr>
+            <tr><td class="time">9:40</td><td>Duch, materia i pięć powłok iluzji</td></tr>
+            <tr><td class="time">16:35</td><td>Ciało, emocje i umysł na autopilocie</td></tr>
+            <tr><td class="time">22:08</td><td>Jak odróżnić prawdę od iluzji?</td></tr>
+            <tr><td class="time">27:39</td><td>Rydwan świadomości i umysł małpy</td></tr>
+            <tr><td class="time">33:06</td><td>Autopilot, wypalenie i wewnętrzny obserwator</td></tr>
+            <tr><td class="time">37:33</td><td>Czym jest nasze wewnętrzne oprogramowanie?</td></tr>
+            <tr><td class="time">42:31</td><td>Jak żyć w materii bez utożsamiania się?</td></tr>
+            <tr><td class="time">46:31</td><td>Wewnętrzny obserwator w praktyce</td></tr>
+            <tr><td class="time">50:58</td><td>Od umysłu motyla do samadhi</td></tr>
+            <tr><td class="time">56:58</td><td>Drogi do wyższych stanów świadomości</td></tr>
+            <tr><td class="time">1:00:19</td><td>Ciało, umysł i energia</td></tr>
+            <tr><td class="time">1:05:58</td><td>Po co duch przychodzi do materii?</td></tr>
+            <tr><td class="time">1:12:12</td><td>Jak świadomie kształtować swój los?</td></tr>
+            <tr><td class="time">1:16:43</td><td>Czym naprawdę jest karma?</td></tr>
+            <tr><td class="time">1:20:09</td><td>Relacje karmiczne i misja duszy</td></tr>
+            <tr><td class="time">1:23:37</td><td>Czy trzeba odrabiać długi karmiczne?</td></tr>
+            <tr><td class="time">1:27:26</td><td>Wymiana energii między ludźmi</td></tr>
+            <tr><td class="time">1:32:17</td><td>Intymność i pamięć energetyczna partnerów</td></tr>
+            <tr><td class="time">1:36:04</td><td>Jak długo zostaje energia partnera?</td></tr>
+            <tr><td class="time">1:40:56</td><td>Kobieca i męska wymiana energii</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+</div>
+
+<footer>
+  <div class="om">ॐ</div>
+  <p>Słownik opracowano na podstawie pełnej transkrypcji filmu (ok. 16 150 słów). Hasła oddają znaczenia w ujęciu rozmówców — część poglądów (np. telegonia, zapisy energetyczne partnerów, wywody o CIA) ma charakter spekulatywny i nie stanowi wiedzy potwierdzonej naukowo.</p>
+</footer>
+
+<script>
+(function () {
+  var input = document.getElementById('search');
+  var terms = Array.prototype.slice.call(document.querySelectorAll('.term'));
+  var sections = Array.prototype.slice.call(document.querySelectorAll('section.glossary'));
+  var noResults = document.getElementById('noResults');
+
+  input.addEventListener('input', function () {
+    var q = input.value.trim().toLowerCase();
+    var anyVisible = false;
+
+    terms.forEach(function (t) {
+      var match = !q || t.textContent.toLowerCase().indexOf(q) !== -1;
+      t.style.display = match ? '' : 'none';
+      if (match) anyVisible = true;
+    });
+
+    sections.forEach(function (s) {
+      var hasTerms = s.querySelector('.term') !== null;
+      if (!hasTerms) { s.style.display = q ? 'none' : ''; return; }
+      var visible = Array.prototype.some.call(
+        s.querySelectorAll('.term'),
+        function (t) { return t.style.display !== 'none'; }
+      );
+      s.style.display = visible ? '' : 'none';
+    });
+
+    noResults.style.display = (!anyVisible && q) ? 'block' : 'none';
+  });
+
+  /* scrollspy */
+  var links = Array.prototype.slice.call(document.querySelectorAll('#nav a'));
+  var map = {};
+  links.forEach(function (a) { map[a.getAttribute('href').slice(1)] = a; });
+
+  var observer = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (e.isIntersecting) {
+        links.forEach(function (a) { a.classList.remove('active'); });
+        var link = map[e.target.id];
+        if (link) link.classList.add('active');
+      }
+    });
+  }, { rootMargin: '-20% 0px -70% 0px' });
+
+  sections.forEach(function (s) { observer.observe(s); });
+})();
+</script>
+</body>
+</html>
