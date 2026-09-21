@@ -1,0 +1,752 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Słownik pojęć — Jak wyregulować swój układ nerwowy</title>
+<meta name="description" content="Słownik pojęć z filmu „Jak wyregulować swój układ nerwowy? || Ania Gniłka o przebodźcowaniu, stresie i regeneracji" — podcast Pewnie z Klimczak. Układ nerwowy, kortyzol, nerw błędny, przebodźcowanie, ćwiczenia somatyczne.">
+<meta property="og:title" content="Słownik pojęć — Jak wyregulować swój układ nerwowy">
+<meta property="og:description" content="Układ nerwowy, tryby fight/flight/freeze, nerw błędny, przebodźcowanie i regeneracja — słownik haseł z podcastu Wioli Klimczak z gościnią Anią Gniłką, z objaśnieniami dla laika.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0f0d0a;
+    --bg-soft: #151209;
+    --surface: #1a1712;
+    --surface-2: #201c15;
+    --border: #2c2618;
+    --gold: #c9a227;
+    --gold-bright: #e6c96a;
+    --gold-dim: #8a7223;
+    --text: #e9e2d2;
+    --muted: #a89d86;
+    --faint: #7a7160;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; scroll-padding-top: 90px; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Inter', system-ui, sans-serif;
+    font-weight: 300;
+    line-height: 1.75;
+    -webkit-font-smoothing: antialiased;
+  }
+  ::selection { background: rgba(201,162,39,.35); color: #fff; }
+
+  /* ---------- top bar ---------- */
+  .topbar {
+    position: sticky; top: 0; z-index: 100;
+    display: flex; align-items: center; gap: 20px;
+    padding: 14px 28px;
+    background: rgba(15,13,10,.88);
+    backdrop-filter: blur(14px);
+    border-bottom: 1px solid var(--border);
+  }
+  .topbar .brand {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.15rem; font-weight: 600;
+    color: var(--gold-bright);
+    letter-spacing: .04em;
+    white-space: nowrap;
+  }
+  .topbar .brand span { color: var(--faint); font-style: italic; font-weight: 400; }
+  .search-wrap { position: relative; flex: 1; max-width: 420px; margin-left: auto; }
+  .search-wrap svg {
+    position: absolute; left: 14px; top: 50%; transform: translateY(-50%);
+    width: 15px; height: 15px; stroke: var(--faint); pointer-events: none;
+  }
+  #search {
+    width: 100%;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    color: var(--text);
+    font-family: 'Inter', sans-serif;
+    font-size: .85rem;
+    padding: 9px 16px 9px 40px;
+    outline: none;
+    transition: border-color .25s, box-shadow .25s;
+  }
+  #search::placeholder { color: var(--faint); }
+  #search:focus { border-color: var(--gold-dim); box-shadow: 0 0 0 3px rgba(201,162,39,.12); }
+
+  /* ---------- hero ---------- */
+  .hero {
+    position: relative;
+    padding: 90px 28px 70px;
+    text-align: center;
+    border-bottom: 1px solid var(--border);
+    background:
+      radial-gradient(ellipse 80% 60% at 50% -10%, rgba(201,162,39,.09), transparent 60%),
+      var(--bg);
+    overflow: hidden;
+  }
+  .hero::after {
+    content: "✧";
+    position: absolute; inset: 0;
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(20rem, 45vw, 34rem);
+    color: rgba(201,162,39,.045);
+    pointer-events: none;
+    user-select: none;
+  }
+  .hero-inner { position: relative; z-index: 1; max-width: 860px; margin: 0 auto; }
+  .hero .eyebrow {
+    font-size: .72rem; letter-spacing: .35em; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 22px; font-weight: 500;
+  }
+  .hero h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2.4rem, 6vw, 4.2rem);
+    font-weight: 600;
+    line-height: 1.12;
+    color: var(--text);
+    margin-bottom: 18px;
+  }
+  .hero h1 em { color: var(--gold-bright); font-style: italic; font-weight: 500; }
+  .hero .film-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: clamp(1.05rem, 2.2vw, 1.3rem);
+    color: var(--muted);
+    max-width: 640px; margin: 0 auto 34px;
+  }
+  .hero-meta {
+    display: flex; flex-wrap: wrap; justify-content: center; gap: 10px 28px;
+    font-size: .8rem; color: var(--faint);
+    letter-spacing: .03em;
+  }
+  .hero-meta b { color: var(--muted); font-weight: 500; }
+  .hero-topics {
+    max-width: 720px; margin: 34px auto 0;
+    font-size: .92rem; color: var(--muted);
+    border-top: 1px solid var(--border); padding-top: 26px;
+  }
+  .hero-note {
+    max-width: 720px; margin: 20px auto 0;
+    font-size: .82rem; color: var(--faint); font-style: italic;
+  }
+  .hero-note i { color: var(--gold-dim); }
+
+  /* ---------- layout ---------- */
+  .layout {
+    display: grid;
+    grid-template-columns: 240px minmax(0, 1fr);
+    gap: 60px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 60px 28px 100px;
+  }
+  .sidebar { position: sticky; top: 90px; align-self: start; }
+  .sidebar .nav-label {
+    font-size: .68rem; letter-spacing: .3em; text-transform: uppercase;
+    color: var(--faint); margin-bottom: 16px; font-weight: 500;
+  }
+  .sidebar nav a {
+    display: block;
+    padding: 8px 0 8px 16px;
+    border-left: 1px solid var(--border);
+    color: var(--muted);
+    text-decoration: none;
+    font-size: .85rem;
+    transition: color .2s, border-color .2s;
+  }
+  .sidebar nav a:hover { color: var(--gold-bright); }
+  .sidebar nav a.active { color: var(--gold-bright); border-left-color: var(--gold); }
+
+  /* ---------- sections ---------- */
+  section.glossary { margin-bottom: 80px; }
+  .section-head { margin-bottom: 36px; }
+  .section-head .num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: .95rem; color: var(--gold); letter-spacing: .25em;
+    display: block; margin-bottom: 6px;
+  }
+  .section-head h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(1.7rem, 3.5vw, 2.3rem);
+    font-weight: 600;
+    color: var(--text);
+    padding-bottom: 14px;
+    border-bottom: 1px solid var(--border);
+    position: relative;
+  }
+  .section-head h2::after {
+    content: ""; position: absolute; left: 0; bottom: -1px;
+    width: 72px; height: 1px; background: var(--gold);
+  }
+
+  .term {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-left: 2px solid var(--gold-dim);
+    border-radius: 4px;
+    padding: 26px 30px;
+    margin-bottom: 18px;
+    transition: border-color .3s, transform .3s, background .3s;
+  }
+  .term:hover {
+    border-left-color: var(--gold);
+    background: var(--surface-2);
+    transform: translateX(3px);
+  }
+  .term h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.45rem; font-weight: 600;
+    color: var(--gold-bright);
+    margin-bottom: 4px;
+  }
+  .term .transcript {
+    display: block;
+    font-size: .75rem; color: var(--faint); font-style: italic;
+    margin-bottom: 12px; letter-spacing: .02em;
+  }
+  .term h3:not(.has-transcript) { margin-bottom: 12px; }
+  .term p { font-size: .93rem; color: var(--text); }
+  .term p + p, .term ul + p { margin-top: 10px; }
+  .term ul { margin: 10px 0 0 4px; list-style: none; }
+  .term ul li {
+    position: relative;
+    font-size: .93rem;
+    padding-left: 22px; margin-bottom: 8px;
+  }
+  .term ul li::before {
+    content: "◆"; position: absolute; left: 0; top: 1px;
+    font-size: .55rem; color: var(--gold-dim);
+  }
+  .term ol { margin: 12px 0 0 0; padding-left: 0; list-style: none; counter-reset: kosza; }
+  .term ol li {
+    counter-increment: kosza;
+    position: relative;
+    font-size: .93rem;
+    padding: 14px 0 14px 46px;
+    border-top: 1px dashed var(--border);
+  }
+  .term ol li:first-child { border-top: none; padding-top: 4px; }
+  .term ol li::before {
+    content: counter(kosza);
+    position: absolute; left: 0; top: 14px;
+    width: 28px; height: 28px;
+    display: flex; align-items: center; justify-content: center;
+    border: 1px solid var(--gold-dim); border-radius: 50%;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: .85rem; color: var(--gold);
+  }
+  .term ol li:first-child::before { top: 4px; }
+  .term b, .term strong { color: var(--gold-bright); font-weight: 500; }
+  .term i, .term em { color: var(--gold-bright); }
+  .term .quote {
+    margin-top: 12px; padding: 12px 18px;
+    border-left: 1px solid var(--gold-dim);
+    background: rgba(201,162,39,.05);
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic; font-size: 1.02rem; color: var(--muted);
+  }
+  .term .simple {
+    margin-top: 14px;
+    padding: 14px 18px;
+    border-left: 2px solid var(--gold);
+    border-radius: 0 4px 4px 0;
+    background: rgba(201,162,39,.07);
+    font-size: .93rem; color: var(--text);
+  }
+  .term .simple-label {
+    display: block;
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    color: var(--gold);
+    font-size: .95rem;
+    margin-bottom: 4px;
+    letter-spacing: .03em;
+  }
+  .term .simple b, .term .simple strong { color: var(--gold-bright); font-weight: 500; }
+
+  /* ---------- tables ---------- */
+  .table-wrap {
+    border: 1px solid var(--border); border-radius: 4px;
+    overflow: hidden; background: var(--surface);
+  }
+  table { width: 100%; border-collapse: collapse; font-size: .9rem; }
+  th {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1rem; font-weight: 600; color: var(--gold-bright);
+    text-align: left; padding: 14px 20px;
+    background: rgba(201,162,39,.06);
+    border-bottom: 1px solid var(--border);
+  }
+  td { padding: 12px 20px; border-bottom: 1px solid var(--border); vertical-align: top; color: var(--text); }
+  tr:last-child td { border-bottom: none; }
+  tr:hover td { background: rgba(201,162,39,.03); }
+  td.time { font-family: 'Cormorant Garamond', serif; color: var(--gold); white-space: nowrap; font-size: 1rem; }
+  td.name { font-weight: 500; color: var(--gold-bright); white-space: nowrap; }
+
+  /* ---------- footer ---------- */
+  footer {
+    border-top: 1px solid var(--border);
+    padding: 50px 28px 60px;
+    text-align: center;
+    background: var(--bg-soft);
+  }
+  footer .om {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2rem; color: var(--gold-dim); margin-bottom: 16px;
+  }
+  footer p { max-width: 680px; margin: 0 auto 8px; font-size: .8rem; color: var(--faint); font-style: italic; }
+
+  .no-results {
+    display: none;
+    text-align: center; padding: 60px 20px;
+    font-family: 'Cormorant Garamond', serif; font-style: italic;
+    font-size: 1.3rem; color: var(--faint);
+  }
+
+  /* ---------- responsive ---------- */
+  @media (max-width: 900px) {
+    .layout { grid-template-columns: 1fr; gap: 40px; padding-top: 40px; }
+    .sidebar {
+      position: static;
+      display: flex; flex-wrap: wrap; gap: 4px 0;
+      border-bottom: 1px solid var(--border); padding-bottom: 20px;
+    }
+    .sidebar .nav-label { width: 100%; }
+    .sidebar nav { display: flex; flex-wrap: wrap; gap: 6px 18px; }
+    .sidebar nav a { border-left: none; border-bottom: 1px solid transparent; padding: 4px 0; }
+    .sidebar nav a.active { border-bottom-color: var(--gold); border-left: none; }
+    .topbar .brand span { display: none; }
+  }
+  @media (max-width: 560px) {
+    .topbar { padding: 12px 16px; }
+    .hero { padding: 60px 18px 50px; }
+    .layout { padding: 36px 16px 80px; }
+    .term { padding: 20px; }
+    th, td { padding: 10px 12px; font-size: .82rem; }
+    td.name { white-space: normal; }
+  }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="brand">Układ nerwowy · Stres · Regeneracja <span>/ słownik pojęć</span></div>
+  <div class="search-wrap">
+    <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+    <input type="search" id="search" placeholder="Szukaj hasła… np. kortyzol, nerw błędny, przebodźcowanie" aria-label="Szukaj hasła">
+  </div>
+</div>
+
+<header class="hero">
+  <div class="hero-inner">
+    <div class="eyebrow">Słownik pojęć z filmu</div>
+    <h1>Jak wyregulować swój<br><em>układ nerwowy</em>?</h1>
+    <p class="film-title">„Jak wyregulować swój układ nerwowy? || Ania Gniłka o przebodźcowaniu, stresie i regeneracji"</p>
+    <div class="hero-meta">
+      <span><b>Kanał:</b> Pewnie z Klimczak Podcast</span>
+      <span><b>Data publikacji:</b> 24 listopada 2025 r.</span>
+      <span><b>Długość:</b> 1:04:01</span>
+    </div>
+    <div class="hero-meta" style="margin-top:14px;">
+      <span><b>Gość:</b> Ania Gniłka — specjalistka od regulacji układu nerwowego, twórczyni marki „Kobieta Orientu", edukatorka somatyczna; łączy wiedzę o układzie nerwowym, neurobiologię stresu i hormony z pracą z ciałem i medycyną chińską.</span>
+    </div>
+    <p class="hero-topics"><b style="color:var(--gold);font-weight:500;">Tematyka rozmowy:</b> czym jest autonomiczny układ nerwowy i dlaczego tak często bywa rozregulowany; tryby fight / flight / freeze; przebodźcowanie, smartfony i dopamina; nerw błędny i ćwiczenia somatyczne; jak odzyskać spokój, energię i kontakt z własnym ciałem.</p>
+    <p class="hero-note">Uwaga redakcyjna: transkrypcja jest automatyczna. Terminy anglojęzyczne (<i>rest and digest</i>, <i>fight or flight</i>, <i>freeze</i>) pozostawiono w oryginale i objaśniono po polsku. Każde hasło ma akapit „Prościej:" — wyjaśnienie dla osób, które o układzie nerwowym słyszą pierwszy raz.</p>
+  </div>
+</header>
+
+<div class="layout">
+  <aside class="sidebar">
+    <div class="nav-label">Spis treści</div>
+    <nav id="nav">
+      <a href="#sekcja-1">Układ nerwowy i stres (podstawy)</a>
+      <a href="#sekcja-2">Stany i reakcje + nerw błędny</a>
+      <a href="#sekcja-3">Objawy rozregulowania</a>
+      <a href="#sekcja-4">Praktyki, nawyki i ćwiczenia</a>
+      <a href="#sekcja-5">Osoby</a>
+      <a href="#sekcja-6">Rozdziały filmu</a>
+    </nav>
+  </aside>
+
+  <main>
+    <div class="no-results" id="noResults">Żadne hasło nie pasuje do wyszukiwania…</div>
+
+    <!-- ============ SEKCJA 1 ============ -->
+    <section class="glossary" id="sekcja-1">
+      <div class="section-head">
+        <span class="num">SEKCJA 1</span>
+        <h2>Układ nerwowy i stres (podstawy)</h2>
+      </div>
+
+      <article class="term">
+        <h3>Układ nerwowy (autonomiczny)</h3>
+        <p>Ta część układu nerwowego, która działa <b>niezależnie od naszej woli</b> — Ania nazywa go „wewnętrznym systemem operacyjnym" i „systemem alarmowym". To on decyduje, czy dana sytuacja życiowa jest bezpieczna, czy niebezpieczna. Na bazie przeszłych doświadczeń tworzy „autostrady", po których potem podąża — np. trudny egzamin w szkole sprawia, że każdy kolejny egzamin automatycznie wywołuje stres. Jeśli nic z nim nie robimy, reaguje na rzeczy, na które „de facto wcale nie musi reagować".</p>
+        <div class="simple"><span class="simple-label">Prościej:</span> To Twój wbudowany „radar i alarm" — sam decyduje, kiedy jesteś bezpieczny, a kiedy włącza stres. Nie da się go uciszyć siłą woli (nie powiesz brzuchowi „przestań się stresować").</div>
+      </article>
+
+      <article class="term">
+        <h3>Rozregulowany układ nerwowy</h3>
+        <p>Stan, w którym system alarmowy jest stale „włączony" i reaguje na bodźce neutralne tak, jakby były zagrożeniem. Wynika z życia w ciągłym napięciu, bez praktyk, które pomagają układowi wrócić do spokoju. Ania szacuje, że sama była „z 15 lat w fight or flight", nie zdając sobie z tego sprawy.</p>
+        <div class="simple"><span class="simple-label">Prościej:</span> Alarm „zablokował się w pozycji ON" — reagujesz nerwowo na drobiazgi, jakby każdy z nich był atakiem tygrysa.</div>
+      </article>
+
+      <article class="term">
+        <h3>Stres / reakcja stresowa</h3>
+        <p>Reakcja organizmu na zagrożenie. Układ nerwowy produkuje wtedy więcej energii — z wątroby uwalnia się glikogen do mięśni, ciało szykuje się do walki lub ucieczki. Mechanizm jest pierwotny (jak u jaskiniowca przed drapieżnikiem), ale dzisiaj stresy to np. praca, a my dalej <b>siedzimy</b> — więc wyprodukowana energia nie zostaje „zużyta" i odkłada się jako napięcie.</p>
+        <div class="simple"><span class="simple-label">Prościej:</span> Ciało przygotowuje się do biegu albo walki — ale Ty dalej siedzisz przy biurku, więc ta energia zostaje w ciele jako napięcie.</div>
+      </article>
+
+      <article class="term">
+        <h3>Kortyzol</h3>
+        <p>„Hormon stresu", działający w <b>cyklu dobowym</b>: rano najwyższy (budzi nas), wieczorem najniższy (pozwala zasnąć). Gdy organizm jest przewlekle w stresie („ciało jest na wojnie"), kortyzol bywa wysoki cały czas. U Ani wieczorny kortyzol był „prawie tak samo wysoki jak rano" — a powinien być niższy.</p>
+        <div class="simple"><span class="simple-label">Prościej:</span> Naturalna „kawa" Twojego ciała — rano ma Cię rozbudzić, wieczorem opaść. Jeśli wieczorem wciąż jest wysoki, ciało myśli, że trwa wojna.</div>
+      </article>
+
+      <article class="term">
+        <h3>Krzywa kortyzolowa</h3>
+        <p>Badanie poziomu kortyzolu kilka razy w ciągu dnia (np. pięć pomiarów), pokazujące jego dobowy przebieg. Ważny jest nie tylko pojedynczy wynik, ale kształt całej krzywej. Pojedyncze poranne badanie u Ani „wychodziło okej" — dopiero pomiar wieczorny ujawnił problem.</p>
+        <div class="simple"><span class="simple-label">Prościej:</span> Zamiast jednego pomiaru sprawdza się, czy „góra" (rano) i „dół" (wieczór) kortyzolu są na właściwych miejscach.</div>
+      </article>
+
+      <article class="term">
+        <h3>Wypalenie nadnerczy</h3>
+        <p>Skutek długiego przebywania w stanie mobilizacji (fight or flight) bez umiejętności przełączenia się w stan odpoczynku. „Powolutku doprowadzamy sobie do wypalenia nadnerczy", jeśli nie wracamy do stanu spokoju.</p>
+        <div class="simple"><span class="simple-label">Prościej:</span> Twoje „baterie stresowe" są wiecznie zużyte, bo organizm non stop pracuje na wysokich obrotach.</div>
+      </article>
+
+      <article class="term">
+        <h3>Przebodźcowanie (overstimulation)</h3>
+        <p>Stan, w którym do układu nerwowego dociera za dużo bodźców naraz — telefon, powiadomienia, hałas, światło. Gdy życie „ma takie tempo, że za nim nie nadążamy", ciało nie czuje się bezpiecznie i nie potrafi się wyciszyć. Ania obserwuje, że „coraz częściej nie umiemy filmu obejrzeć ciągiem", bo w międzyczasie sięgamy po telefon.</p>
+        <div class="simple"><span class="simple-label">Prościej:</span> Za dużo wszystkiego naraz — jak słuchanie dziesięciu piosenek jednocześnie. Ciało nie nadąża i czuje się przytłoczone.</div>
+      </article>
+
+      <article class="term">
+        <h3>Dopamina</h3>
+        <p>Neuroprzekaźnik „nagrody". Smartfony i social media „zalewają nas dopaminą", przez co mózg przyzwyczaja się do szybkich, mocnych bodźców i traci zdolność skupienia na zadaniach „nudnych" (napisanie rozdziału, umowy). Mózg pyta wtedy „gdzie jest moja dopamina?" i szuka kolejnej dawki.</p>
+        <div class="simple"><span class="simple-label">Prościej:</span> Hormon „przyjemności od zaraz". Telefon daje go tak łatwo, że mózg przestaje umieć zająć się czymś spokojnym i nudnym.</div>
+      </article>
+    </section>
+
+    <!-- ============ SEKCJA 2 ============ -->
+    <section class="glossary" id="sekcja-2">
+      <div class="section-head">
+        <span class="num">SEKCJA 2</span>
+        <h2>Stany i reakcje + nerw błędny</h2>
+      </div>
+
+      <article class="term">
+        <h3>Okno tolerancji</h3>
+        <p>„Pas", w którym poruszamy się w codziennych sytuacjach. Gdy okno jest <b>szerokie</b>, mamy dużą tolerancję na stresory; gdy <b>wąskie</b>, drobnostka (sprawdzenie telefonu rano, 5 minut spóźnienia) wypycha nas ponad górną granicę wprost w reakcję stresową. Praca z układem nerwowym poszerza to okno.</p>
+        <div class="simple"><span class="simple-label">Prościej:</span> Twoja „miara cierpliwości". Im szersza, tym trudniej Cię wyprowadzić z równowagi. Ania: spóźnienie i brak miejsca do parkowania kiedyś by ją zestresowały, a dziś „okej, dojechałam".</div>
+      </article>
+
+      <article class="term">
+        <h3 class="has-transcript">Rest and digest („odpoczywaj i traw")</h3>
+        <span class="transcript">nazywany też stanem spokoju / równowagi</span>
+        <p>Stan, w którym jesteśmy w równowadze: spokój, dobre trawienie, efektywny odpoczynek. To stan, „w którym powinniśmy być najczęściej". Problemy trawienne to jeden z najczęstszych sygnałów, że zbyt rzadko w nim bywamy.</p>
+        <div class="simple"><span class="simple-label">Prościej:</span> Tryb „relaks" — ciało spokojnie trawi i odpoczywa, czujesz się bezpiecznie.</div>
+      </article>
+
+      <article class="term">
+        <h3 class="has-transcript">Fight or flight („walcz lub uciekaj")</h3>
+        <span class="transcript">stan mobilizacji</span>
+        <p>Stan, w którym system uznaje, że „damy radę" przeciwnościom — energia do działania, motywacja. Częściowo nam służy (pomaga pokonywać trudności i iść do przodu). Problem zaczyna się, gdy trwa przewlekle: ciągłe działanie, lista zadań bez końca, a „siedzenie i zatrzymanie się jest niewygodne". Objawia się m.in. napięciem w obręczy barkowej (reakcja „fight" — ciało szykuje siłę do walki).</p>
+        <div class="simple"><span class="simple-label">Prościej:</span> Tryb „do dzieła" — daje Ci energię, ale jeśli się nie wyłącza, prowadzi do wypalenia.</div>
+      </article>
+
+      <article class="term">
+        <h3 class="has-transcript">Freeze (zamrożenie)</h3>
+        <span class="transcript">stan odłączenia / „wyłączenia zasilania"</span>
+        <p>Stan, w którym zagrożenie jest tak duże, że system uznaje, że „nie damy rady" — kompletne odłączenie, brak energii, „jakby wyłączyło nam zasilanie". Objawia się prokrastynacją, trudnością w podejmowaniu decyzji, „stanem depresyjnym", brakiem sił i pasji do życia. Typowy wzorzec: mobilizacja w pracy, a po powrocie leżenie na kanapie i scrollowanie.</p>
+        <div class="simple"><span class="simple-label">Prościej:</span> Tryb „zamrożenie/udawanie martwego" — jak opos, który udaje martwego przed kojotem. Zero energii, zero chęci, wszystko „niech leży".</div>
+      </article>
+
+      <article class="term">
+        <h3>Nerw błędny (nervus vagus, nerw X)</h3>
+        <p>Dziesiąty nerw czaszkowy — bardzo długi nerw, biegnący od pnia mózgu wzdłuż szyi aż do brzucha. Łączy mózg z narządami wewnętrznymi (serce, żołądek, płuca); to „autostrada komunikacji" i „główny instrument orkiestry relaksu". Ciekawe: więcej informacji płynie <b>z brzucha do głowy</b> (ok. 80/20) niż odwrotnie. Aktywacja nerwu błędnego przełącza nas ze stresu do spokoju.</p>
+        <div class="simple"><span class="simple-label">Prościej:</span> „Kabel relaksu" łączący mózg z brzuchem i sercem. Gdy go pobudzisz (oddech, ziewanie, masaż ucha), ciało dostaje sygnał „jest bezpiecznie".</div>
+      </article>
+
+      <article class="term">
+        <h3>Regulacja nerwu błędnego</h3>
+        <p>Ćwiczenia i praktyki, które aktywują nerw błędny, by ułatwić przechodzenie z reakcji stresowej do stanu spokoju. To „krok drugi" — pierwszym jest uporządkowanie stylu życia i nawyków.</p>
+        <div class="simple"><span class="simple-label">Prościej:</span> Nauka świadomego „wciskania hamulca" — żeby po stresie wrócić do spokoju szybciej, a nie tkwić w napięciu.</div>
+      </article>
+
+      <article class="term">
+        <h3>Teoria poliwagalna</h3>
+        <p>Ramy naukowe (Stephena Porgesa), w których opisuje się stany autonomicznego układu nerwowego — bezpieczeństwo/zaangażowanie ↔ mobilizacja (fight/flight) ↔ zamrożenie (freeze). W rozmowie ujęte jako trzy stany: <i>rest and digest</i>, <i>fight or flight</i> i <i>freeze</i>. (Pojęcie tła — w filmie nie pada wprost ta nazwa.)</p>
+        <div class="simple"><span class="simple-label">Prościej:</span> Naukowy „słownik", który tłumaczy, dlaczego Twoje ciało ma kilka trybów reakcji na stres — i dlaczego czasem „zawiesza się" zamiast działać.</div>
+      </article>
+    </section>
+
+    <!-- ============ SEKCJA 3 ============ -->
+    <section class="glossary" id="sekcja-3">
+      <div class="section-head">
+        <span class="num">SEKCJA 3</span>
+        <h2>Objawy rozregulowania</h2>
+      </div>
+
+      <article class="term">
+        <h3>Zmęczenie (objaw nr 1)</h3>
+        <p>Najczęstszy objaw: budzimy się rano i dalej jesteśmy zmęczeni, nawet po 8 godzinach snu. Odpoczynek jest nieefektywny, bo wewnętrzny alarm jest włączony — „jeśli się położymy, ale alarm działa, to i tak nie jest to efektywny odpoczynek".</p>
+        <div class="simple"><span class="simple-label">Prościej:</span> Śpisz, ale „bateria się nie ładuje", bo ciało cały czas czuwa.</div>
+      </article>
+
+      <article class="term">
+        <h3>Wybudzanie nocne</h3>
+        <p>Zasypiasz dobrze, ale budzisz się ok. 3:00–4:00 nad ranem i trudno ponownie zasnąć. Ania zmagała się z tym latami — to właśnie to naprowadziło ją na temat kortyzolu i układu nerwowego.</p>
+        <div class="simple"><span class="simple-label">Prościej:</span> Ciało „alarmuje" Cię w środku nocy, bo poziom kortyzolu jest odwrócony (za wysoki wieczorem).</div>
+      </article>
+
+      <article class="term">
+        <h3>Problemy jelitowe</h3>
+        <p>Zaparcia, biegunki, brak apetytu, „zaciskający się żołądek" — bardzo częsty objaw rozregulowania. Jelita i układ nerwowy są mocno połączone. Ania: „jak u mnie coś się dzieje, to od razu zaciska się żołądek"; ćwiczenia aktywujące nerw błędny potrafią „puścić brzuch" w 15 minut.</p>
+        <div class="simple"><span class="simple-label">Prościej:</span> Stres „wchodzi w brzuch" — stąd motyle, bóle i biegunka przed ważnym wydarzeniem.</div>
+      </article>
+
+      <article class="term">
+        <h3>Brak apetytu rano</h3>
+        <p>Niechęć do jedzenia rano to sygnał rozregulowania. W zdrowym organizmie, żyjącym zgodnie z rytmem dobowym, między 7:00 a 9:00 przypada maksimum energii w meridianie żołądka — powinniśmy być wtedy głodni (ujęcie medycyny chińskiej, do której odwołuje się Ania).</p>
+        <div class="simple"><span class="simple-label">Prościej:</span> Jeśli rano nie jesteś głodny, Twój rytm jest przesunięty — ciało nie „budzi się" prawidłowo.</div>
+      </article>
+
+      <article class="term">
+        <h3>Trądzik wieku dorosłego / problemy skórne</h3>
+        <p>Wypryski, szczególnie w dolnej części żuchwy, mogą być objawem stresu i rozregulowanego układu nerwowego.</p>
+        <div class="simple"><span class="simple-label">Prościej:</span> Skóra „wykrzykuje" to, czego nie wypowiesz — stres często objawia się na twarzy.</div>
+      </article>
+
+      <article class="term">
+        <h3>Wypadanie włosów / zapach potu</h3>
+        <p>Stres może objawiać się wypadaniem włosów oraz specyficznym, „stresowym" zapachem potu, który czasem „wchodzi na stałe".</p>
+        <div class="simple"><span class="simple-label">Prościej:</span> Ciało sygnalizuje stres „zewnętrznie" — przez włosy i zapach, nie tylko przez samopoczucie.</div>
+      </article>
+
+      <article class="term">
+        <h3 class="has-transcript">Problemy z koncentracją („pamięć rybki Dori")</h3>
+        <span class="transcript">efekt przebodźcowania i dopaminy</span>
+        <p>Idziesz do pokoju po coś i zapominasz po co; bierzesz telefon, widzisz komunikat i gubisz wątek. Efekt zalania mózgu bodźcami i ciągłego poszukiwania dopaminy.</p>
+        <div class="simple"><span class="simple-label">Prościej:</span> Mózg jest tak zalany bodźcami, że „nie trzyma" jednej myśli naraz.</div>
+      </article>
+
+      <article class="term">
+        <h3>Prokrastynacja</h3>
+        <p>Odkładanie rzeczy, zwłaszcza „nieesencjonalnych", typowe dla stanu zamrożenia: potrafimy zmobilizować się do pracy i „wyglądać, jakby wszystko było okej", ale po powrocie leżymy bez energii i cały wieczór „przelewa się między palcami".</p>
+        <div class="simple"><span class="simple-label">Prościej:</span> Odkładasz wszystko nie z lenistwa, tylko dlatego, że ciało jest w trybie „zamrożonym".</div>
+      </article>
+
+      <article class="term">
+        <h3>Mięsień psoas (lędźwiowy)</h3>
+        <p>Głęboki mięsień biegnący od końca żeber z tyłu w stronę bioder — łączy kręgosłup z miednicą. Według somatyki <b>pierwszy spina się w stresie</b> — „wcześniej niż szczęka". Odpowiada za napięcia i bóle dolnego odcinka pleców. Ania ma złamany kręgosłup i wyczuwa, że ból pleców w konkretnym miejscu oznacza, iż układ nerwowy „coś przetworzył, czego ja nie zarejestrowałam".</p>
+        <div class="simple"><span class="simple-label">Prościej:</span> Głęboki mięsień „w środku" — magazynuje stres, zanim Ty w ogóle poczujesz, że się spiąłeś.</div>
+      </article>
+
+      <article class="term">
+        <h3>Ból pleców i obręczy barkowej</h3>
+        <p>Stres „zapisany w ciele": napięcia w obręczy barkowej (częściej reakcja <i>fight</i> — ciało szykuje siłę), bóle dolnego odcinka pleców (mięsień psoas). Bóle pleców można łagodzić przez pracę z układem nerwowym, nie tylko tabletkami.</p>
+        <div class="simple"><span class="simple-label">Prościej:</span> Stres nie znika — „odkłada się" w mięśniach pleców i karku.</div>
+      </article>
+
+      <article class="term">
+        <h3>Objawy senne</h3>
+        <p>Sygnały rozregulowania widoczne we śnie: noga podniesiona do góry, „rączki T-rexa" (dłonie skurczone jak u dinozaura), spanie na brzuchu („chowanie" brzucha — centrum emocji — przez przyklejenie go do materaca), uczucie spadania w przepaść przy zasypianiu, „prądy" w ciele.</p>
+        <div class="simple"><span class="simple-label">Prościej:</span> Twoja pozycja i odczucia we śnie zdradzają, ile napięcia nosi ciało — np. chowanie brzucha to chowanie emocji.</div>
+      </article>
+
+      <article class="term">
+        <h3>Różnice w stresie: kobiety vs mężczyźni</h3>
+        <p>Ogólna obserwacja Ani: mężczyźni częściej „odcinają się od ciała" — dużo napięcia w obręczy barkowej, problemy kręgosłupowe; kobiety częściej regulują emocje płaczem. To tendencje, nie sztywna reguła.</p>
+        <div class="simple"><span class="simple-label">Prościej:</span> Panowie częściej „trzymają" stres w mięśniach, panie częściej „wypłakują" go — obie drogi mówią o tym, jak ciało radzi sobie z napięciem.</div>
+      </article>
+    </section>
+
+    <!-- ============ SEKCJA 4 ============ -->
+    <section class="glossary" id="sekcja-4">
+      <div class="section-head">
+        <span class="num">SEKCJA 4</span>
+        <h2>Praktyki, nawyki i ćwiczenia</h2>
+      </div>
+
+      <article class="term">
+        <h3>Somatyka / ćwiczenia somatyczne</h3>
+        <p>Praca z ciałem, która odbudowuje „nić porozumienia" z nim — skupianie się na tym, co czujemy i gdzie. Uczy „bycia w ciele" zamiast życia „w głowie". Dzięki temu potrafisz wyłapać „o, dzisiaj się spięłam, mój żołądek jest spięty" — i odpowiednio zareagować. Odbudowa tego kontaktu potrafi zająć lata.</p>
+        <div class="simple"><span class="simple-label">Prościej:</span> Nauka słuchania ciała — zauważania sygnałów zamiast zagłuszania ich tabletką i „lecenia dalej".</div>
+      </article>
+
+      <article class="term">
+        <h3>Ziewanie</h3>
+        <p>Sygnał wysyłany do „komputera pokładowego": „jest bezpiecznie, mogę się zrelaksować". Ćwiczenia wymuszają ziewanie, by ten wewnętrzny sygnał poszedł. Jeśli na początku nie ziewasz, ciało potrzebuje czasu, by zaufać, że może wejść w relaks.</p>
+        <div class="simple"><span class="simple-label">Prościej:</span> Ziewnięcie to „przycisk wyciszenia" — mówi ciału, że może odpuścić.</div>
+      </article>
+
+      <article class="term">
+        <h3>Masaż ucha</h3>
+        <p>W małżowinie usznej nerw błędny jest „mocno na powierzchni". Ćwiczenia: rozmasowanie małżowiny, masaż zagłębienia u góry płatka, włożenie palca do ucha i ściągnięcie małżowiny w dół. Ania robi to nawet w samochodzie — nazywa „ćwiczeniem alarmowym" o bardzo silnym działaniu.</p>
+        <div class="simple"><span class="simple-label">Prościej:</span> Pocieranie ucha to jak „reset" — szybki sposób na uspokojenie, nawet w samochodzie na światłach.</div>
+      </article>
+
+      <article class="term">
+        <h3 class="has-transcript">Mruczenie / „foczka" / śpiew</h3>
+        <span class="transcript">praca głosem z nerwem błędnym</span>
+        <p>Nerw błędny łączy się z gardłem, więc głos go aktywuje. „Foczka" to ćwiczenie: wymawianie angielskiego „R" (rrr…) z szeroko otwartymi ustami, aż do ziewnięcia. Działa też śpiew i mruczenie.</p>
+        <div class="simple"><span class="simple-label">Prościej:</span> Mruczenie lub wymawianie „rrr" wibruje gardłem i „masuje" nerw relaksu.</div>
+      </article>
+
+      <article class="term">
+        <h3>Wydłużony wydech / oddech</h3>
+        <p>Wdech + długi, powolny wydech spowalnia rytm serca i uspokaja. „Jeśli jesteśmy zestresowani i zrobimy 10 długich, powolnych wydechów, naprawdę się uspokoimy." Oddychanie to jedna z podstawowych praktyk regulujących układ nerwowy.</p>
+        <div class="simple"><span class="simple-label">Prościej:</span> Dłuższy wydech to „hamulec" dla układu nerwowego — dziesięć oddechów i jesteś spokojniejszy.</div>
+      </article>
+
+      <article class="term">
+        <h3 class="has-transcript">Wytrząsanie / TRE / trampolina</h3>
+        <span class="transcript">„zutylizowanie" energii stresu</span>
+        <p>Sposób na „zużycie" energii wyprodukowanej przez układ nerwowy: strzepywanie, skakanie (na miękkich kolanach albo trampolinie), TRE (rozluźnianie napięć z miednicy przez delikatne drżenie). Zwierzęta robią to instynktownie — pies po stresie „cały się trzęsie i strzepuje ten stres". My natomiast „wszystko zamrażamy" i trzymamy w ciele.</p>
+        <div class="simple"><span class="simple-label">Prościej:</span> Wytrząśnij stres z ciała — jak pies po kąpieli — zamiast zamrażać go w sobie.</div>
+      </article>
+
+      <article class="term">
+        <h3>Rytm dobowy / regularność</h3>
+        <p>Układ nerwowy najbardziej lubi regularność, „dobowość i cykliczność" — to daje poczucie bezpieczeństwa. Jeśli życie ma tempo, za którym nie nadążamy, ciało nie czuje się bezpiecznie. Praca z układem nerwowym to „nauka powrotu do ciała".</p>
+        <div class="simple"><span class="simple-label">Prościej:</span> Stałe pory snu, jedzenia i ruchu to dla ciała sygnał „wszystko jest pod kontrolą".</div>
+      </article>
+
+      <article class="term">
+        <h3>Poranek bez telefonu / światło dzienne / śniadanie</h3>
+        <p>„Krok pierwszy" (przed praktykami): rano nie brać telefonu do ręki, wyjść chwilę na dwór, by mózg dostał sygnał „jest dzień", nie pić kawy na czczo i zjeść śniadanie w pierwszej godzinie po wstaniu. Rano mózg jest w falach alfa (stan medytacyjny, „miękki") — telefon natychmiast wrzuca nas w fale beta (stres).</p>
+        <div class="simple"><span class="simple-label">Prościej:</span> Daj sobie „miękki start" — najpierw światło i jedzenie, dopiero potem ekran.</div>
+      </article>
+
+      <article class="term">
+        <h3>Wieczór bez telefonu / budzik analogowy / tryb samolotowy</h3>
+        <p>Godzinę–dwie przed snem bez telefonu, budzik analogowy (telefon „daleko"), na noc tryb samolotowy. Zmniejsza nocne napięcie i poprawia sen. (Poglądowo: fale radiowe telefonu „zakłócają sen".)</p>
+        <div class="simple"><span class="simple-label">Prościej:</span> Wieczorem odstaw telefon do innego pokoju — mózg dostaje sygnał „koniec dnia".</div>
+      </article>
+
+      <article class="term">
+        <h3 class="has-transcript">Zasada „nie dużo, a regularnie"</h3>
+        <span class="transcript">motto z newslettera Ani</span>
+        <p>W pracy z układem nerwowym nie trzeba się przemęczać — trzeba robić regularnie. Np. dwie 5-minutowe serie dziennie (rano i w południe; przy dużym rozregulowaniu trzecia wieczorem) przez miesiąc. „Jesteśmy przyzwyczajeni, że żeby osiągnąć efekt, musimy się napracować — a tutaj wcale nie."</p>
+        <div class="simple"><span class="simple-label">Prościej:</span> Lepiej 5 minut dziennie niż godzina raz w tygodniu. Regularność > intensywność.</div>
+      </article>
+
+      <article class="term">
+        <h3>Kawa / kofeina</h3>
+        <p>Kofeina „podkręca" układ nerwowy i może zaburzać sen — u wrażliwych osób jedna kawa rano oznacza brak snu do północy. Ania przeszła na kawę bezkofeinową. (Poglądowo, z medycyny chińskiej: „kawa jest gorąca i wpływa na zasoby krwi", szczególnie u kobiet.)</p>
+        <div class="simple"><span class="simple-label">Prościej:</span> Kofeina to „pedał gazu" — jeśli masz problem ze snem, to pierwszy kandydat do ograniczenia.</div>
+      </article>
+
+      <article class="term">
+        <h3>Tabletki nasenne / melatonina</h3>
+        <p>Tabletki nasenne maskują objaw, ale nie rozwiązują przyczyny — „dokładamy układowi nerwowemu, bo on w ogóle nie wie, co się dzieje". Ania preferuje naturalne podejście (ewentualnie melatonina w podróży).</p>
+        <div class="simple"><span class="simple-label">Prościej:</span> Leki na sen wyciszają objaw, ale nie naprawiają „alarmu" — dlatego warto szukać przyczyny.</div>
+      </article>
+    </section>
+
+    <!-- ============ SEKCJA 5 ============ -->
+    <section class="glossary" id="sekcja-5">
+      <div class="section-head">
+        <span class="num">SEKCJA 5</span>
+        <h2>Osoby</h2>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Nazwa</th><th>Rola w rozmowie</th></tr></thead>
+          <tbody>
+            <tr><td class="name">Ania Gniłka (Anna)</td><td>Gość podcastu; specjalistka od regulacji układu nerwowego, twórczyni marki „Kobieta Orientu", Somatic Practitioner; praktyki somatyczne, nerw błędny, medycyna chińska. Instagram: @kobieta.orientu; kurs „Wagalflow" (25 ćwiczeń).</td></tr>
+            <tr><td class="name">Wiola Klimczak</td><td>Prowadząca podcast „Pewnie z Klimczak Podcast".</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="glossary" id="sekcja-6" style="margin-bottom:0;">
+      <div class="section-head">
+        <span class="num">SEKCJA 6</span>
+        <h2>Rozdziały filmu (spis treści)</h2>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Czas</th><th>Rozdział</th></tr></thead>
+          <tbody>
+            <tr><td class="time">0:00</td><td>Wstęp</td></tr>
+            <tr><td class="time">1:11</td><td>Kim jest Ania Gniłka i czym się zajmuje</td></tr>
+            <tr><td class="time">4:40</td><td>Czym jest układ nerwowy i dlaczego tak często bywa rozregulowany</td></tr>
+            <tr><td class="time">10:15</td><td>Tryby fight, flight, freeze – jak się objawiają w codziennym życiu</td></tr>
+            <tr><td class="time">15:00</td><td>Przebodźcowanie – smartfony, dopamina i brak koncentracji</td></tr>
+            <tr><td class="time">18:45</td><td>Poranne i wieczorne rytuały a zdrowie układu nerwowego</td></tr>
+            <tr><td class="time">24:40</td><td>Czytanie, spacer i światło – 3 proste nawyki zmieniające życie</td></tr>
+            <tr><td class="time">29:20</td><td>Jak wprowadzać zdrowe nawyki i dlaczego regularność jest kluczowa</td></tr>
+            <tr><td class="time">33:00</td><td>Czym jest nerw błędny i jak wpływa na nasze ciało</td></tr>
+            <tr><td class="time">36:10</td><td>Ćwiczenia somatyczne – masaż ucha, mruczenie, ziewanie</td></tr>
+            <tr><td class="time">41:00</td><td>Jakie objawy mogą świadczyć o napięciu w ciele</td></tr>
+            <tr><td class="time">46:20</td><td>Mięsień psoas i stres zapisany w plecach</td></tr>
+            <tr><td class="time">50:00</td><td>Czym są objawy somatyczne we śnie i co mówią o naszym ciele</td></tr>
+            <tr><td class="time">53:20</td><td>Różnice w reagowaniu na stres u kobiet i mężczyzn</td></tr>
+            <tr><td class="time">56:10</td><td>Proste praktyki, które możesz zacząć już dziś</td></tr>
+            <tr><td class="time">58:30</td><td>Podsumowanie i inspirujące zakończenie rozmowy</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+</div>
+
+<footer>
+  <div class="om">✧</div>
+  <p>Słownik opracowano na podstawie pełnej transkrypcji filmu (ok. 16 000 słów). Hasła oddają znaczenia w ujęciu rozmówców — część poglądów (medycyna chińska i meridiany, wpływ fal radiowych na sen, wpływ kawy na „zasoby krwi") ma charakter poglądowy i nie stanowi wiedzy potwierdzonej naukowo. Treść ma charakter edukacyjny i nie zastępuje porady lekarza.</p>
+</footer>
+
+<script>
+(function () {
+  var input = document.getElementById('search');
+  var terms = Array.prototype.slice.call(document.querySelectorAll('.term'));
+  var sections = Array.prototype.slice.call(document.querySelectorAll('section.glossary'));
+  var noResults = document.getElementById('noResults');
+
+  input.addEventListener('input', function () {
+    var q = input.value.trim().toLowerCase();
+    var anyVisible = false;
+
+    terms.forEach(function (t) {
+      var match = !q || t.textContent.toLowerCase().indexOf(q) !== -1;
+      t.style.display = match ? '' : 'none';
+      if (match) anyVisible = true;
+    });
+
+    sections.forEach(function (s) {
+      var hasTerms = s.querySelector('.term') !== null;
+      if (!hasTerms) { s.style.display = q ? 'none' : ''; return; }
+      var visible = Array.prototype.some.call(
+        s.querySelectorAll('.term'),
+        function (t) { return t.style.display !== 'none'; }
+      );
+      s.style.display = visible ? '' : 'none';
+    });
+
+    noResults.style.display = (!anyVisible && q) ? 'block' : 'none';
+  });
+
+  /* scrollspy */
+  var links = Array.prototype.slice.call(document.querySelectorAll('#nav a'));
+  var map = {};
+  links.forEach(function (a) { map[a.getAttribute('href').slice(1)] = a; });
+
+  var observer = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (e.isIntersecting) {
+        links.forEach(function (a) { a.classList.remove('active'); });
+        var link = map[e.target.id];
+        if (link) link.classList.add('active');
+      }
+    });
+  }, { rootMargin: '-20% 0px -70% 0px' });
+
+  sections.forEach(function (s) { observer.observe(s); });
+})();
+</script>
+</body>
+</html>
